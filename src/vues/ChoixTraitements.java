@@ -18,7 +18,7 @@ public class ChoixTraitements extends JFrame {
 	public ChoixTraitements() {
 
 		super("Choix des traitements");
-		setSize(250, 200);
+		setSize(350, 175);
 		setVisible(true);
 		setResizable(false);
 		setIconImage(new ImageIcon("icon.png").getImage());
@@ -26,11 +26,11 @@ public class ChoixTraitements extends JFrame {
 		JPanel p = new JPanel(new GridBagLayout());
 
 		GridBagConstraints gbc = new GridBagConstraints();
-		gbc.anchor = GridBagConstraints.WEST;
+		gbc.anchor = GridBagConstraints.CENTER;
 		gbc.fill = GridBagConstraints.VERTICAL;
 		gbc.weightx = 1;
 		gbc.weighty = 1;
-		gbc.insets = new Insets(2, 2, 2, 2);
+		gbc.insets = new Insets(3, 3, 3, 3);
 
 		gbc.gridwidth = 1;
 		gbc.gridheight = 1;
@@ -39,32 +39,24 @@ public class ChoixTraitements extends JFrame {
 		p.add(new JLabel("Sélectionner la catégorie à modifier"), gbc);
 
 		gbc.gridy = 2;
-		p.add(new JButton("Artiste"), gbc);
+		p.add(new JButton("Artiste"), gbc); //add action listnener
 
 		gbc.gridy = 3;
-		p.add(new JButton("Album"), gbc);
-
-		
+		p.add(new JButton("Album"), gbc); //add action listnener
 
 		add(p, BorderLayout.NORTH);
-		
-		gbc.anchor = GridBagConstraints.WEST;
 
-		gbc.weightx = 1;
-		gbc.weighty = 1;
-		gbc.insets = new Insets(2, 2, 2, 2);
-		
 		JPanel p1 = new JPanel(new GridBagLayout());
-		gbc.gridx = 1;
-		gbc.gridy = 6;
-		p1.add(new JButton("Aide en ligne"), gbc);
-		
-		gbc.gridx = 3;
-		p1.add(new JButton("Quitter"), gbc);
-		
-		add(p1, BorderLayout.SOUTH);
+		GridBagConstraints gbc1 = new GridBagConstraints();
+		gbc1.anchor = GridBagConstraints.WEST;
+		gbc1.fill = GridBagConstraints.NONE;
+		gbc1.insets = new Insets(10, 10, 10, 10);
+		p1.add(new JButton("Aide en ligne"), gbc1); //add action listnener
 
-		//pack();
+		gbc1.anchor = GridBagConstraints.EAST;
+		p1.add(new JButton("Quitter"), gbc1); //add action listnener
+
+		add(p1, BorderLayout.SOUTH);
 
 		int choix = 0; // Modifier le choix dans le gestionnaire d'evenements
 
