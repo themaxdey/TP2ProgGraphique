@@ -1,46 +1,49 @@
-package vues;
-
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
-import java.awt.Font;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Insets;
 
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JList;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import java.awt.Font;
 import javax.swing.JPanel;
 import javax.swing.JTable;
-import javax.swing.JTextField;
+import javax.swing.JCheckBox;
+import javax.swing.JList;
 
-public class AffichageGestionArtiste extends JFrame{
-	private static final long serialVersionUID = 1L;
-	
+public class fen {
+
 	private JFrame frame;
 	private JTextField textField;
 	private JTable table;
 	private JTextField textField_1;
 	private JTextField textField_2;
 
-	public AffichageGestionArtiste() {
-		/*
-		super("Gestion des artistes");
-		setSize(500, 200);
-		//setResizable(false);
-		setIconImage(new ImageIcon("icon.png").getImage());
-		
-		add(top(), BorderLayout.NORTH);
-		
-		setVisible(true);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		*/
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					fen window = new fen();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public fen() {
 		initialize();
 	}
-	
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(500, 500, 500, 500);
@@ -135,8 +138,5 @@ public class AffichageGestionArtiste extends JFrame{
 		JPanel panel_1 = new JPanel();
 		panel_1.setBounds(374, 315, 100, 100);
 		frame.getContentPane().add(panel_1);
-		
-		frame.setVisible(true);
 	}
-
 }
