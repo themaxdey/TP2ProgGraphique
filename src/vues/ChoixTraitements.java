@@ -28,7 +28,7 @@ public class ChoixTraitements extends JFrame {
 
 		JPanel p = new JPanel(new GridBagLayout());
 		
-		String url = "https://bit.ly/2PsoNvT";
+		String url = "https://bit.ly/2ISmOzG";
 		
 		JButton b1 = new JButton("Artiste");
 		b1.addActionListener(new ActionListener() {
@@ -36,7 +36,6 @@ public class ChoixTraitements extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				new AffichageGestionArtiste();
-				System.out.println("Ouverture gestion artiste");
 				dispose();
 			}
 			
