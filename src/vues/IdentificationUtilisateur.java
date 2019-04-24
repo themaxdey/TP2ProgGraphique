@@ -33,7 +33,8 @@ public class IdentificationUtilisateur extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				if(!c2.getText().equals("") && !c4.getText().equals("")) {
-					System.out.println("Poupou");
+					new ChoixTraitements();
+					dispose();
 				}
 			}
 			
