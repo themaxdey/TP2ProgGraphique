@@ -28,7 +28,7 @@ public class ChoixTraitements extends JFrame {
 
 		JPanel p = new JPanel(new GridBagLayout());
 		
-		String url = "https://bit.ly/2Dzm7Fg";
+		String url = "https://bit.ly/2PsoNvT";
 		
 		JButton b1 = new JButton("Artiste");
 		b1.addActionListener(new ActionListener() {
