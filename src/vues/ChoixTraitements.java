@@ -36,6 +36,7 @@ public class ChoixTraitements extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				new AffichageGestionArtiste();
+				System.out.println("Ouverture gestion artiste");
 				dispose();
 			}
 			
@@ -46,6 +47,7 @@ public class ChoixTraitements extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				new AffichageGestionAlbum();
+				System.out.println("Ouverture gestion Album");
 				dispose();
 			}
 			
