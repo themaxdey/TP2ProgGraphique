@@ -19,8 +19,7 @@ public class IdentificationUtilisateur extends JFrame{
 		
 		super("Authentification");
 		setSize(500, 200);
-		setVisible(true);
-		//setResizable(false);
+		setResizable(false);
 		setIconImage(new ImageIcon("icon.png").getImage());
 		setLayout(new GridBagLayout());
 		
@@ -33,7 +32,9 @@ public class IdentificationUtilisateur extends JFrame{
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				System.out.println("Poupou");
+				if(!c2.getText().equals("") && !c4.getText().equals("")) {
+					System.out.println("Poupou");
+				}
 			}
 			
 		});
@@ -75,7 +76,8 @@ public class IdentificationUtilisateur extends JFrame{
 		
 		con.gridx = 1;
 		add(b2, con);
-		
+
+		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
