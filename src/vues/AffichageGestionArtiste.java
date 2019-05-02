@@ -1,11 +1,12 @@
 package vues;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
 import java.awt.Font;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Insets;
+import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.RenderingHints;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -27,25 +28,17 @@ public class AffichageGestionArtiste extends JFrame{
 	private JTextField textField_2;
 
 	public AffichageGestionArtiste() {
-		/*
-		super("Gestion des artistes");
-		setSize(500, 200);
-		//setResizable(false);
-		setIconImage(new ImageIcon("icon.png").getImage());
-		
-		add(top(), BorderLayout.NORTH);
-		
-		setVisible(true);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		*/
 		initialize();
+		remplir();
 	}
 	
 	private void initialize() {
 		frame = new JFrame();
+		frame.setTitle("Choix des traitements");
 		frame.setBounds(500, 500, 500, 500);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		frame.setIconImage(new ImageIcon("icon.png").getImage());
 		
 		JLabel lblRechercherUnArtiste = new JLabel("Rechercher un artiste");
 		lblRechercherUnArtiste.setBounds(10, 11, 255, 14);
@@ -58,10 +51,26 @@ public class AffichageGestionArtiste extends JFrame{
 		
 		JButton btnRechercher = new JButton("Rechercher");
 		btnRechercher.setBounds(249, 25, 89, 23);
+		btnRechercher.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				
+			}
+			
+		});
 		frame.getContentPane().add(btnRechercher);
 		
 		JButton btnQuitter = new JButton("Quitter");
 		btnQuitter.setBounds(385, 25, 89, 23);
+		btnQuitter.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				frame.dispose();
+			}
+			
+		});
 		frame.getContentPane().add(btnQuitter);
 		
 		JLabel lblArtistes = new JLabel("Artistes");
@@ -69,9 +78,10 @@ public class AffichageGestionArtiste extends JFrame{
 		lblArtistes.setBounds(10, 68, 139, 38);
 		frame.getContentPane().add(lblArtistes);
 		
-		JPanel panel = new JPanel();
-		panel.setBounds(10, 117, 100, 100);
-		frame.getContentPane().add(panel);
+		JLabel labelImage = new JLabel();
+		labelImage.setBounds(10, 117, 100, 100);
+		labelImage.setIcon( new ImageIcon(scaleImage("albumCover.png")));
+		frame.getContentPane().add(labelImage);
 		
 		JButton btnRemplacer = new JButton("Remplacer");
 		btnRemplacer.setBounds(10, 225, 100, 30);
@@ -128,7 +138,7 @@ public class AffichageGestionArtiste extends JFrame{
 		frame.getContentPane().add(textField_2);
 		textField_2.setColumns(10);
 		
-		JList list = new JList();
+		JList<String> list = new JList<String>();
 		list.setBounds(175, 315, 185, 100);
 		frame.getContentPane().add(list);
 		
@@ -137,6 +147,23 @@ public class AffichageGestionArtiste extends JFrame{
 		frame.getContentPane().add(panel_1);
 		
 		frame.setVisible(true);
+	}
+	
+	public void remplir() {
+		
+	}
+	
+	private Image scaleImage(String stringImg){
+		ImageIcon imageIcon = new ImageIcon(stringImg);
+		Image img = imageIcon.getImage();
+	    BufferedImage resizedImg = new BufferedImage(100, 100, BufferedImage.TYPE_INT_ARGB);
+	    Graphics2D g2 = resizedImg.createGraphics();
+
+	    g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+	    g2.drawImage(img, 0, 0, 100, 100, null);
+	    g2.dispose();
+
+	    return resizedImg;
 	}
 
 }
