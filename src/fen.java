@@ -114,11 +114,11 @@ public class fen {
 		frame.getContentPane().add(lblNom);
 		
 		JLabel lblMembre = new JLabel("Membre");
-		lblMembre.setBounds(10, 365, 46, 14);
+		lblMembre.setBounds(10, 365, 64, 14);
 		frame.getContentPane().add(lblMembre);
 		
 		JCheckBox checkBox = new JCheckBox("");
-		checkBox.setBounds(62, 361, 97, 23);
+		checkBox.setBounds(70, 361, 97, 23);
 		frame.getContentPane().add(checkBox);
 		
 		textField_1 = new JTextField();

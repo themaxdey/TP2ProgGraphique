@@ -34,7 +34,7 @@ public class AffichageGestionArtiste extends JFrame{
 	
 	private void initialize() {
 		frame = new JFrame();
-		frame.setTitle("Choix des traitements");
+		frame.setTitle("Gestion des artistes");
 		frame.setBounds(500, 500, 500, 500);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
@@ -121,7 +121,7 @@ public class AffichageGestionArtiste extends JFrame{
 		frame.getContentPane().add(lblNom);
 		
 		JLabel lblMembre = new JLabel("Membre");
-		lblMembre.setBounds(10, 365, 46, 14);
+		lblMembre.setBounds(10, 365, 64, 14);
 		frame.getContentPane().add(lblMembre);
 		
 		JCheckBox checkBox = new JCheckBox("");
