@@ -4,9 +4,9 @@ public class Artiste {
 	String nom;
 	String photo;
 	int numeroArtiste;
-	String membre;
+	int membre;
 	
-	public Artiste(String nom, String photo, int numero, String membre) {
+	public Artiste(String nom, String photo, int numero, int membre) {
 		this.nom = nom;
 		this.photo = photo;
 		this.numeroArtiste = numero;
@@ -17,7 +17,11 @@ public class Artiste {
 		return this.nom;
 	}
 	
-	public String getMembre() {
+	public String getPhoto() {
+		return this.photo;
+	}
+	
+	public int getMembre() {
 		return this.membre;
 	}
 	

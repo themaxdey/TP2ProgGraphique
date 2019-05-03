@@ -33,6 +33,4 @@ public class Album {
 	public int getNumeroArtisteFK() {
 		return numeroArtisteFK;
 	}
-	
-	
 }

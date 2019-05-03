@@ -18,8 +18,8 @@ import javax.swing.JList;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
-import modeles.Album;
-import modeles.Artiste;
+import modeles.*;
+import controleurs.*;
 
 public class AffichageGestionArtiste extends JFrame{
 	private static final long serialVersionUID = 1L;
@@ -32,11 +32,15 @@ public class AffichageGestionArtiste extends JFrame{
 	
 	private ArrayList<Artiste> listeArtistes;
 	private ArrayList<Album> listeAlbums;
+	
+	private String[][] donnees;
+	private String[] nomColonne = {"No", "Nom", "Membre"};
 
 	public AffichageGestionArtiste() {
-		initialize();
-		getDonnees();
+		listeArtistes = GestionEvenements.remplirArtistes();
+		listeAlbums = GestionEvenements.remplirAlbums();
 		remplir();
+		initialize();
 	}
 	
 	private void initialize() {
@@ -94,7 +98,7 @@ public class AffichageGestionArtiste extends JFrame{
 		btnRemplacer.setBounds(10, 225, 100, 30);
 		frame.getContentPane().add(btnRemplacer);
 		
-		table = new JTable();
+		table = new JTable(donnees, nomColonne);
 		table.setBounds(120, 117, 240, 138);
 		frame.getContentPane().add(table);
 		
@@ -157,13 +161,19 @@ public class AffichageGestionArtiste extends JFrame{
 		frame.setVisible(true);
 	}
 	
-	public void getDonnees() {
-		
-	}
-	
 	public void remplir() {
-		
-		
+		int i = 0;
+		for(Artiste a : listeArtistes) {
+			donnees[i][0] = Integer.toString(a.getNumero());
+			donnees[i][1] = a.getNom();
+			
+			if(a.getMembre() == 1) {
+				donnees[i][2] = "Oui";
+			}else {
+				donnees[i][2] = "Non";				
+			}
+			i++;
+		}
 		
 	}
 	
