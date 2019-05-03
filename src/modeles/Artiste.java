@@ -13,6 +13,10 @@ public class Artiste {
 		this.photo = photo;
 	}
 	
+	public Artiste() {
+		
+	}
+	
 	public int getNumero() {
 		return numero;
 	}
