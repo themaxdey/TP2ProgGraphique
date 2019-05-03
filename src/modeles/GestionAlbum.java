@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import controleurs.GestionEvenements;
 
+@SuppressWarnings("unused")
 public class GestionAlbum { //Utile pour le bonus
 
 //	public static ArrayList<Album> ajouterAlbum(Album album, ArrayList<Album> ListeAlbum) {

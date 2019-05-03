@@ -6,8 +6,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import javax.management.Query;
-
 import modeles.Album;
 import modeles.Artiste;
 import utilitaire.ControleurConnexion;

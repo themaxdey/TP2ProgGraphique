@@ -306,6 +306,7 @@ public class AffichageGestionArtiste extends JFrame {
 	}
 	
 	private void afficherArtiste(String num) {
+		btnAjouter.setEnabled(false);
 		btnModifier.setEnabled(false);
 		btnSupprimer.setEnabled(true);
 		textField_2.setEditable(false);
