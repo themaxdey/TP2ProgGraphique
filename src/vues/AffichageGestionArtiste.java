@@ -11,6 +11,7 @@ import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
+import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -36,6 +37,8 @@ public class AffichageGestionArtiste extends JFrame {
 	private JTextField textField_1;
 	private JTextField textField_2;
 	private JCheckBox checkBox1;
+	private DefaultListModel<String> listModel;
+	private JLabel labelImage;
 
 	private ArrayList<Artiste> listeArtistes;
 	private ArrayList<Album> listeAlbums;
@@ -95,13 +98,14 @@ public class AffichageGestionArtiste extends JFrame {
 		lblArtistes.setBounds(10, 68, 139, 38);
 		frame.getContentPane().add(lblArtistes);
 
-		JLabel labelImage = new JLabel();
+		labelImage = new JLabel();
 		labelImage.setBounds(10, 117, 100, 100);
 		labelImage.setIcon( new ImageIcon(scaleImage("images/image.png")));
 		frame.getContentPane().add(labelImage);
 
 		JButton btnRemplacer = new JButton("Remplacer");
 		btnRemplacer.setBounds(10, 225, 100, 30);
+		btnRemplacer.setEnabled(false);
 		frame.getContentPane().add(btnRemplacer);
 
 		TableModel model = new DefaultTableModel(donnees, nomColonne) {
@@ -202,9 +206,10 @@ public class AffichageGestionArtiste extends JFrame {
 		frame.getContentPane().add(textField_2);
 		textField_2.setColumns(10);
 
-		JList<String> list = new JList<String>();
-		list.setBounds(175, 315, 185, 100);
-		frame.getContentPane().add(list);
+		listModel = new DefaultListModel<>();
+		JList<String> list1 = new JList<String>(listModel);
+		list1.setBounds(175, 315, 185, 100);
+		frame.getContentPane().add(list1);
 
 		JLabel labelAlbum = new JLabel();
 		labelAlbum.setBounds(374, 315, 100, 100);
@@ -231,7 +236,6 @@ public class AffichageGestionArtiste extends JFrame {
 			}
 			i++;
 		}
-
 	}
 
 	private Image scaleImage(String stringImg) {
@@ -263,6 +267,25 @@ public class AffichageGestionArtiste extends JFrame {
 			checkBox1.setSelected(false);
 		}
 		
+		int o = 0;
+		for(Album a : listeAlbums) {
+			if(a.getNumeroArtiste() == artiste.getNumero()) {
+				o++;
+			}
+		}
+		int i = 0;
+		String[] liste = new String[o];
+		for(Album a : listeAlbums) {
+			if(a.getNumeroArtiste() == artiste.getNumero()) {
+				liste[i] = (a.getAnnee() + " - " + a.getTitre());
+				i++;
+			}
+		}
+		listModel.clear();
+		for(int oups = 0; oups < liste.length; oups++) {
+			listModel.addElement(liste[oups]);
+		}
+		labelImage.setIcon( new ImageIcon(scaleImage(artiste.getPhoto())));
 	}
 	
 	private void editArtiste(String num) {
