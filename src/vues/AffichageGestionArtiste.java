@@ -25,6 +25,7 @@ import javax.swing.table.TableModel;
 import controleurs.GestionEvenements;
 import modeles.Album;
 import modeles.Artiste;
+import modeles.GestionArtiste;
 
 public class AffichageGestionArtiste extends JFrame {
 	private static final long serialVersionUID = 1L;

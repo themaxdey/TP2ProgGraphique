@@ -1,9 +1,12 @@
 package controleurs;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+
+import javax.management.Query;
 
 import modeles.Album;
 import modeles.Artiste;
@@ -82,16 +85,20 @@ public class GestionEvenements {
 	}
 
 	public static void ajouterArtisteBD(Artiste artiste) {
-		String req = "INSERT INTO Artiste (numero, nom, membre, photo) VALUES " + "('" + artiste.getNumero() + "', '"
-				+ artiste.getNom() + "', '" + artiste.getNumero() + "', '" + artiste.getPhoto() + "')";
+		String req = "INSERT INTO Artiste (numero, nom, membre, photo) VALUES (?, ? ,? ,?)";
 
 		ControleurConnexion.connecter();
-
-		Statement statement;
+		PreparedStatement preparedStmt;
 
 		try {
-			statement = ControleurConnexion.getLaConnexion().createStatement();
-			statement.executeQuery(req);
+			preparedStmt = ControleurConnexion.getLaConnexion().prepareStatement(req);
+
+			preparedStmt.setInt(1, artiste.getNumero());
+			preparedStmt.setString(2, artiste.getNom());
+			preparedStmt.setInt(3, artiste.getMembre());
+			preparedStmt.setString(4, artiste.getPhoto());
+
+			preparedStmt.executeUpdate();
 
 		} catch (SQLException e) {
 			System.out.println("Impossible d'inserer d'artiste dans la table");
@@ -103,17 +110,20 @@ public class GestionEvenements {
 	}
 
 	public static void modifierArtisteBD(Artiste artiste) {
-		String req = "UPDATE Artiste SET numero = " + artiste.getNumero() + ", nom = " + artiste.getNom()
-				+ ", membre = " + artiste.getMembre() + ", photo = " + artiste.getPhoto() + " WHERE numero = "
-				+ artiste.getNumero() + "";
+		String req = "UPDATE Artiste SET nom = ?, membre = ?, photo = ? WHERE numero = ?";
 
 		ControleurConnexion.connecter();
-
-		Statement statement;
+		PreparedStatement preparedStmt;
 
 		try {
-			statement = ControleurConnexion.getLaConnexion().createStatement();
-			statement.executeQuery(req);
+			preparedStmt = ControleurConnexion.getLaConnexion().prepareStatement(req);
+
+			preparedStmt.setString(1, artiste.getNom());
+			preparedStmt.setInt(2, artiste.getMembre());
+			preparedStmt.setString(3, artiste.getPhoto());
+			preparedStmt.setInt(4, artiste.getNumero());
+
+			preparedStmt.executeUpdate();
 
 		} catch (SQLException e) {
 			System.out.println("Impossible de modifier un artiste dans la table");
@@ -125,15 +135,17 @@ public class GestionEvenements {
 	}
 
 	public static void supprimerArtisteBD(Artiste artiste) {
-		String req = "DELETE FROM Artiste WHERE numero = " + artiste.getNumero() + "";
+		String req = "DELETE FROM Artiste WHERE numero = ?";
 
 		ControleurConnexion.connecter();
-
-		Statement statement;
+		PreparedStatement preparedStmt;
 
 		try {
-			statement = ControleurConnexion.getLaConnexion().createStatement();
-			statement.executeQuery(req);
+			preparedStmt = ControleurConnexion.getLaConnexion().prepareStatement(req);
+
+			preparedStmt.setInt(1, artiste.getNumero());
+
+			preparedStmt.executeUpdate();
 
 		} catch (SQLException e) {
 			System.out.println("Impossible de supprimer un artiste de la table");

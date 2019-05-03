@@ -19,10 +19,9 @@ public class GestionArtiste {
 
 	public static ArrayList<Artiste> modifierArtiste(Artiste artiste, ArrayList<Artiste> ListeArtiste) {
 		
-		int idArtiste = artiste.getNumero();
+		int idArtiste = ListeArtiste.indexOf(artiste) + 1;
 		
-		ListeArtiste.set(idArtiste, artiste);
-		
+		ListeArtiste.set(idArtiste, artiste);		
 		GestionEvenements.modifierArtisteBD(artiste);
 
 		return ListeArtiste;
