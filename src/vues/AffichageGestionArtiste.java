@@ -20,6 +20,7 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
@@ -39,6 +40,11 @@ public class AffichageGestionArtiste extends JFrame {
 	private JCheckBox checkBox1;
 	private DefaultListModel<String> listModel;
 	private JLabel labelImage;
+	private JList<String> list1;
+	
+	private JButton btnModifier;
+	private JButton btnSupprimer;
+	private JButton btnAjouter;
 
 	private ArrayList<Artiste> listeArtistes;
 	private ArrayList<Album> listeAlbums;
@@ -122,6 +128,8 @@ public class AffichageGestionArtiste extends JFrame {
 		};
 		table = new JTable(model);  
 		table.setBounds(120, 117, 240, 138);
+		table.setRowSelectionAllowed(true);
+		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		table.addMouseListener(new MouseAdapter() {
 
 			public void mouseClicked(MouseEvent e) {
@@ -145,14 +153,44 @@ public class AffichageGestionArtiste extends JFrame {
 
 		JButton btnNouveau = new JButton("Nouveau");
 		btnNouveau.setBounds(385, 117, 89, 23);
+		btnNouveau.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				table.clearSelection();
+				list1.clearSelection();
+				textField_1.setText("");
+				textField_2.setText("");
+				checkBox1.setSelected(false);
+				
+				textField_1.setEditable(true);
+				textField_2.setEditable(true);
+				checkBox1.setEnabled(true);
+				btnAjouter.setEnabled(true);
+			}
+			
+		});
 		frame.getContentPane().add(btnNouveau);
 
-		JButton btnAjouter = new JButton("Ajouter");
+		btnAjouter = new JButton("Ajouter");
 		btnAjouter.setBounds(385, 151, 89, 23);
+		btnAjouter.setEnabled(false);
+		btnAjouter.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				int membre = (checkBox1.isSelected()) ? 1 : 0;
+				Artiste artiste = new Artiste(Integer.parseInt(textField_1.getText()), textField_2.getText(), membre, null);
+				listeArtistes = GestionArtiste.ajouterArtiste(artiste, listeArtistes);
+				update();
+			}
+			
+		});
 		frame.getContentPane().add(btnAjouter);
 
-		JButton btnModifier = new JButton("Modifier");
+		btnModifier = new JButton("Modifier");
 		btnModifier.setBounds(385, 185, 89, 23);
+		btnModifier.setEnabled(false);
 		btnModifier.addActionListener(new ActionListener() {
 
 			@Override
@@ -162,14 +200,30 @@ public class AffichageGestionArtiste extends JFrame {
 					checked = 1;
 				}
 				Artiste artiste = new Artiste(Integer.parseInt(textField_1.getText()), textField_2.getText(), checked, null);
-				GestionArtiste.modifierArtiste(artiste, listeArtistes);
+				listeArtistes = GestionArtiste.modifierArtiste(artiste, listeArtistes);
+				update();
 			}
 			
 		});
 		frame.getContentPane().add(btnModifier);
 
-		JButton btnSupprimer = new JButton("Supprimer");
+		btnSupprimer = new JButton("Supprimer");
 		btnSupprimer.setBounds(385, 232, 89, 23);
+		btnSupprimer.setEnabled(false);
+		btnSupprimer.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				int checked = 0;
+				if(checkBox1.isSelected()) {
+					checked = 1;
+				}
+				Artiste artiste = new Artiste(Integer.parseInt(textField_1.getText()), textField_2.getText(), checked, null);
+				listeArtistes = GestionArtiste.supprimerArtiste(artiste, listeArtistes);
+				update();
+			}
+			
+		});
 		frame.getContentPane().add(btnSupprimer);
 
 		JLabel lblInformations = new JLabel("Informations");
@@ -207,7 +261,7 @@ public class AffichageGestionArtiste extends JFrame {
 		textField_2.setColumns(10);
 
 		listModel = new DefaultListModel<>();
-		JList<String> list1 = new JList<String>(listModel);
+		list1 = new JList<String>(listModel);
 		list1.setBounds(175, 315, 185, 100);
 		frame.getContentPane().add(list1);
 
@@ -252,6 +306,10 @@ public class AffichageGestionArtiste extends JFrame {
 	}
 	
 	private void afficherArtiste(String num) {
+		btnModifier.setEnabled(false);
+		btnSupprimer.setEnabled(true);
+		textField_2.setEditable(false);
+		checkBox1.setEnabled(false);
 		Artiste artiste = new Artiste();
 		for(int i = 0; i < listeArtistes.size(); i++) {
 			artiste = listeArtistes.get(i);
@@ -285,10 +343,17 @@ public class AffichageGestionArtiste extends JFrame {
 		for(int oups = 0; oups < liste.length; oups++) {
 			listModel.addElement(liste[oups]);
 		}
-		labelImage.setIcon( new ImageIcon(scaleImage(artiste.getPhoto())));
+		//System.out.println(artiste.getPhoto());
+		if(artiste.getPhoto() == null) {
+			labelImage.setIcon( new ImageIcon(scaleImage("images/image.png")));
+		}else {			
+			labelImage.setIcon( new ImageIcon(scaleImage(artiste.getPhoto())));
+		}
+		
 	}
 	
 	private void editArtiste(String num) {
+		btnModifier.setEnabled(true);
 		Artiste artiste = new Artiste();
 		for(int i = 0; i < listeArtistes.size(); i++) {
 			artiste = listeArtistes.get(i);
@@ -299,6 +364,11 @@ public class AffichageGestionArtiste extends JFrame {
 		textField_2.setEditable(true);
 		checkBox1.setEnabled(true);
 		
+	}
+	
+	private void update() {
+		frame.dispose();
+		initialize();
 	}
 
 }
