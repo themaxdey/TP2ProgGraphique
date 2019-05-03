@@ -1,5 +1,6 @@
 package vues;
 
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.Image;
@@ -18,6 +19,7 @@ import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
@@ -126,10 +128,12 @@ public class AffichageGestionArtiste extends JFrame {
 				return false;
 			}
 		};
-		table = new JTable(model);  
+		table = new JTable(model);
 		table.setBounds(120, 117, 240, 138);
 		table.setRowSelectionAllowed(true);
 		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		table.setPreferredScrollableViewportSize(new Dimension(450, 63));
+		table.setFillsViewportHeight(true);
 		table.addMouseListener(new MouseAdapter() {
 
 			public void mouseClicked(MouseEvent e) {
@@ -149,7 +153,11 @@ public class AffichageGestionArtiste extends JFrame {
 			}
 			
 		});
-		frame.getContentPane().add(table);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(120, 117, 240, 138);
+		frame.getContentPane().add(scrollPane);
+		scrollPane.setViewportView(table);
 
 		JButton btnNouveau = new JButton("Nouveau");
 		btnNouveau.setBounds(385, 117, 89, 23);
@@ -368,8 +376,6 @@ public class AffichageGestionArtiste extends JFrame {
 	}
 	
 	private void update() {
-		frame.dispose();
-		initialize();
 	}
 
 }
