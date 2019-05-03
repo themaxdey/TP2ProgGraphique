@@ -18,13 +18,11 @@ public class GestionEvenements {
 		ControleurConnexion.connecter();
 		ArrayList<Album> listeAlbum = null;
 		Statement statement;
-		
+
 		try {
 			statement = ControleurConnexion.getLaConnexion().createStatement();
 			ResultSet jeuResultats = statement.executeQuery(req);
-			
-			
-			
+
 			Album album;
 
 			while (jeuResultats.next()) {
@@ -33,17 +31,18 @@ public class GestionEvenements {
 				String photo = jeuResultats.getString("photo");
 				int numeroArtisteFK = Integer.parseInt(jeuResultats.getString("numeroArtisteFK"));
 				int numeroAlbum = Integer.parseInt(jeuResultats.getString("numeroAlbum"));
-				
+
 				album = new Album(titre, annee, photo, numeroArtisteFK, numeroAlbum);
-				
-				
+
 				listeAlbum.add(album);
-				
+
 			}
 		} catch (SQLException e) {
 			System.out.println("Impossible de naviger dans le RS d'album");
 			e.printStackTrace();
 		}
+
+		ControleurConnexion.fermerSession();
 
 		return listeAlbum;
 	}
@@ -55,13 +54,11 @@ public class GestionEvenements {
 		ControleurConnexion.connecter();
 		ArrayList<Artiste> listeArtiste = null;
 		Statement statement;
-		
+
 		try {
 			statement = ControleurConnexion.getLaConnexion().createStatement();
 			ResultSet jeuResultats = statement.executeQuery(req);
-			
-			
-			
+
 			Artiste artiste;
 
 			while (jeuResultats.next()) {
@@ -69,17 +66,18 @@ public class GestionEvenements {
 				String photo = jeuResultats.getString("photo");
 				int numero = Integer.parseInt(jeuResultats.getString("numeroArtiste"));
 				String membre = jeuResultats.getString("membre");
-				
+
 				artiste = new Artiste(nom, photo, numero, membre);
-				
-				
+
 				listeArtiste.add(artiste);
-				
+
 			}
 		} catch (SQLException e) {
 			System.out.println("Impossible de naviger dans le RS d'artiste");
 			e.printStackTrace();
 		}
+
+		ControleurConnexion.fermerSession();
 
 		return listeArtiste;
 	}
