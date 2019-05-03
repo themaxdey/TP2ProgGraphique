@@ -7,6 +7,7 @@ import java.awt.RenderingHints;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -14,9 +15,11 @@ import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
-import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+
+import modeles.Album;
+import modeles.Artiste;
 
 public class AffichageGestionArtiste extends JFrame{
 	private static final long serialVersionUID = 1L;
@@ -26,9 +29,13 @@ public class AffichageGestionArtiste extends JFrame{
 	private JTable table;
 	private JTextField textField_1;
 	private JTextField textField_2;
+	
+	private ArrayList<Artiste> listeArtistes;
+	private ArrayList<Album> listeAlbums;
 
 	public AffichageGestionArtiste() {
 		initialize();
+		getDonnees();
 		remplir();
 	}
 	
@@ -50,7 +57,7 @@ public class AffichageGestionArtiste extends JFrame{
 		textField.setColumns(10);
 		
 		JButton btnRechercher = new JButton("Rechercher");
-		btnRechercher.setBounds(249, 25, 89, 23);
+		btnRechercher.setBounds(249, 25, 111, 21);
 		btnRechercher.addActionListener(new ActionListener() {
 			
 			@Override
@@ -144,10 +151,14 @@ public class AffichageGestionArtiste extends JFrame{
 		
 		JLabel labelAlbum = new JLabel();
 		labelAlbum.setBounds(374, 315, 100, 100);
-		labelImage.setIcon( new ImageIcon(scaleImage("albumCover.png")));
+		labelAlbum.setIcon( new ImageIcon(scaleImage("albumCover.png")));
 		frame.getContentPane().add(labelAlbum);
 		
 		frame.setVisible(true);
+	}
+	
+	public void getDonnees() {
+		
 	}
 	
 	public void remplir() {

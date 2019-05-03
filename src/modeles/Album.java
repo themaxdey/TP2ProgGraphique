@@ -9,6 +9,7 @@ public class Album {
 	
 	public Album (String titre, int annee, String photo, int numeroArtisteFK, int numeroAlbum) {
 		this.titre = titre;
+		this.annee = annee;
 		this.photo = photo;
 		this.numeroArtisteFK = numeroArtisteFK;
 		this.numeroAlbum = numeroAlbum;
@@ -16,6 +17,13 @@ public class Album {
 	
 	public String getTitre() {
 		return this.titre;
+	}
+	
+	public int getAnnee() {
+		return this.annee;
+	}
+	public String getPhoto() {
+		return this.photo;
 	}
 	
 	public int getNumeroAlbum() {
@@ -26,8 +34,5 @@ public class Album {
 		return numeroArtisteFK;
 	}
 	
-	public int getAnnee() {
-		return this.annee;
-	}
 	
 }

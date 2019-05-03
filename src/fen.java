@@ -60,7 +60,7 @@ public class fen {
 		textField.setColumns(10);
 		
 		JButton btnRechercher = new JButton("Rechercher");
-		btnRechercher.setBounds(249, 25, 89, 23);
+		btnRechercher.setBounds(249, 25, 111, 21);
 		frame.getContentPane().add(btnRechercher);
 		
 		JButton btnQuitter = new JButton("Quitter");
