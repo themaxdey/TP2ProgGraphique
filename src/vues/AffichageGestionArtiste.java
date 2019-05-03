@@ -38,6 +38,7 @@ public class AffichageGestionArtiste extends JFrame {
 	private JTextField textField_2;
 	private JCheckBox checkBox1;
 	private DefaultListModel<String> listModel;
+	private JLabel labelImage;
 
 	private ArrayList<Artiste> listeArtistes;
 	private ArrayList<Album> listeAlbums;
@@ -97,13 +98,14 @@ public class AffichageGestionArtiste extends JFrame {
 		lblArtistes.setBounds(10, 68, 139, 38);
 		frame.getContentPane().add(lblArtistes);
 
-		JLabel labelImage = new JLabel();
+		labelImage = new JLabel();
 		labelImage.setBounds(10, 117, 100, 100);
 		labelImage.setIcon( new ImageIcon(scaleImage("images/image.png")));
 		frame.getContentPane().add(labelImage);
 
 		JButton btnRemplacer = new JButton("Remplacer");
 		btnRemplacer.setBounds(10, 225, 100, 30);
+		btnRemplacer.setEnabled(false);
 		frame.getContentPane().add(btnRemplacer);
 
 		TableModel model = new DefaultTableModel(donnees, nomColonne) {
@@ -283,6 +285,7 @@ public class AffichageGestionArtiste extends JFrame {
 		for(int oups = 0; oups < liste.length; oups++) {
 			listModel.addElement(liste[oups]);
 		}
+		labelImage.setIcon( new ImageIcon(scaleImage(artiste.getPhoto())));
 	}
 	
 	private void editArtiste(String num) {
