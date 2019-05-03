@@ -12,7 +12,6 @@ import utilitaire.ControleurConnexion;
 
 public class GestionEvenements {
 
-	@SuppressWarnings("null")
 	public static ArrayList<Album> remplirAlbums() {
 		String req = "SELECT * FROM Album";
 
@@ -49,7 +48,6 @@ public class GestionEvenements {
 		return listeAlbum;
 	}
 
-	@SuppressWarnings("null")
 	public static ArrayList<Artiste> remplirArtistes() {
 		String req = "SELECT * FROM Artiste";
 
