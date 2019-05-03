@@ -98,11 +98,7 @@ public class AffichageGestionArtiste extends JFrame {
 
 		JLabel labelImage = new JLabel();
 		labelImage.setBounds(10, 117, 100, 100);
-<<<<<<< HEAD
 		labelImage.setIcon( new ImageIcon(scaleImage("images/image.png")));
-=======
-		labelImage.setIcon(new ImageIcon(scaleImage("image.png")));
->>>>>>> b23252bd1fa759598cb9bc15850a9b5e5d4b00fa
 		frame.getContentPane().add(labelImage);
 
 		JButton btnRemplacer = new JButton("Remplacer");
