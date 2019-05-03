@@ -15,8 +15,11 @@ import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 import modeles.*;
 import controleurs.*;
@@ -98,7 +101,14 @@ public class AffichageGestionArtiste extends JFrame{
 		btnRemplacer.setBounds(10, 225, 100, 30);
 		frame.getContentPane().add(btnRemplacer);
 		
-		table = new JTable(donnees, nomColonne);
+		TableModel model = new DefaultTableModel(donnees, nomColonne) {
+			private static final long serialVersionUID = 1L;
+
+			public boolean isCellEditable(int r, int c) {
+				return false;
+			}
+		};
+		table = new JTable(model);
 		table.setBounds(120, 117, 240, 138);
 		frame.getContentPane().add(table);
 		
