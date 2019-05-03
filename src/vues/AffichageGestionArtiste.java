@@ -162,7 +162,11 @@ public class AffichageGestionArtiste extends JFrame{
 	}
 	
 	public void remplir() {
+		int g = listeArtistes.size();
 		int i = 0;
+		
+		donnees = new String[g][3];
+		
 		for(Artiste a : listeArtistes) {
 			donnees[i][0] = Integer.toString(a.getNumero());
 			donnees[i][1] = a.getNom();

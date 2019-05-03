@@ -17,7 +17,7 @@ public class GestionEvenements {
 		String req = "SELECT * FROM Album";
 
 		ControleurConnexion.connecter();
-		ArrayList<Album> listeAlbum = null;
+		ArrayList<Album> listeAlbum = new ArrayList<Album>();
 		Statement statement;
 
 		try {
@@ -27,13 +27,14 @@ public class GestionEvenements {
 			Album album;
 
 			while (jeuResultats.next()) {
+				int numero = Integer.parseInt(jeuResultats.getString("numero"));
 				String titre = jeuResultats.getString("titre");
+				String genre = jeuResultats.getString("genre");
 				int annee = Integer.parseInt(jeuResultats.getString("annee"));
-				String photo = jeuResultats.getString("photo");
-				int numeroArtisteFK = Integer.parseInt(jeuResultats.getString("numeroArtisteFK"));
-				int numeroAlbum = Integer.parseInt(jeuResultats.getString("numeroAlbum"));
+				String image = jeuResultats.getString("image");
+				int numeroArtiste = Integer.parseInt(jeuResultats.getString("numeroArtiste"));
 
-				album = new Album(titre, annee, photo, numeroArtisteFK, numeroAlbum);
+				album = new Album(numero, titre, genre, annee, image, numeroArtiste);
 
 				listeAlbum.add(album);
 
@@ -53,7 +54,7 @@ public class GestionEvenements {
 		String req = "SELECT * FROM Artiste";
 
 		ControleurConnexion.connecter();
-		ArrayList<Artiste> listeArtiste = null;
+		ArrayList<Artiste> listeArtiste = new ArrayList<Artiste>();
 		Statement statement;
 
 		try {
@@ -63,12 +64,12 @@ public class GestionEvenements {
 			Artiste artiste;
 
 			while (jeuResultats.next()) {
-				String nom = jeuResultats.getString("titre");
-				String photo = jeuResultats.getString("photo");
-				int numero = Integer.parseInt(jeuResultats.getString("numeroArtiste"));
+				int numero = Integer.parseInt(jeuResultats.getString("numero"));
+				String nom = jeuResultats.getString("nom");
 				int membre = Integer.parseInt(jeuResultats.getString("membre"));
+				String photo = jeuResultats.getString("photo");
 
-				artiste = new Artiste(nom, photo, numero, membre);
+				artiste = new Artiste(numero, nom, membre, photo);
 
 				listeArtiste.add(artiste);
 
