@@ -66,7 +66,7 @@ public class GestionEvenements {
 				String nom = jeuResultats.getString("titre");
 				String photo = jeuResultats.getString("photo");
 				int numero = Integer.parseInt(jeuResultats.getString("numeroArtiste"));
-				String membre = jeuResultats.getString("membre");
+				int membre = Integer.parseInt(jeuResultats.getString("membre"));
 
 				artiste = new Artiste(nom, photo, numero, membre);
 
