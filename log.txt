@@ -1,0 +1,282 @@
+commit cc7f1cec525441367a65fdb2a7daab7a17044b7d
+Author: Jsbeaulne <jeansebastien321@gmail.com>
+Date:   Fri May 3 01:32:06 2019 -0400
+
+    Dude
+
+commit 3654f7b45a11800f1218750140c0049cf674e915
+Merge: 65b896f c2fc9e6
+Author: themaxdey <themaxdey@users.noreply.github.com>
+Date:   Fri May 3 00:31:01 2019 -0400
+
+    pipiii
+
+commit 65b896f933694714df3ec6fe0368f58ab3a15866
+Author: themaxdey <themaxdey@users.noreply.github.com>
+Date:   Fri May 3 00:29:02 2019 -0400
+
+    fixed the faulty SQL requests
+
+commit c2fc9e61d34bf902aee2f47d559c8d4ad69f08a1
+Author: Jsbeaulne <jeansebastien321@gmail.com>
+Date:   Fri May 3 00:28:12 2019 -0400
+
+    Ajout des images d'artistes
+
+commit f53f7ee5132e1cec1df56a15fd3dcb4ba7eaf864
+Author: Jsbeaulne <jeansebastien321@gmail.com>
+Date:   Fri May 3 00:18:54 2019 -0400
+
+    Ajout des albums de l'artiste selectionne
+
+commit ad54d0eada2cae8d52274b456fdbb2a29873ce60
+Merge: 6842d90 8dc41d3
+Author: Jsbeaulne <jeansebastien321@gmail.com>
+Date:   Thu May 2 23:58:33 2019 -0400
+
+    Merge branch 'devJS'
+
+commit 6842d9012e0ff80de59df4babd5addfa1f0182aa
+Merge: f9da444 dff395b
+Author: themaxdey <themaxdey@users.noreply.github.com>
+Date:   Thu May 2 23:57:52 2019 -0400
+
+    Merge branch 'devMax'
+
+commit f9da44412daf9fb51c9461d80273cc6ee5b9d685
+Author: themaxdey <themaxdey@users.noreply.github.com>
+Date:   Thu May 2 23:56:49 2019 -0400
+
+    pipi
+
+commit dff395bff4d4c041d0286adec347e6e5610f5df7
+Author: themaxdey <themaxdey@users.noreply.github.com>
+Date:   Thu May 2 23:54:49 2019 -0400
+
+    fini gestionnaire d'evenements
+
+commit 8dc41d31c61f095771843e177198e685375896ad
+Author: Jsbeaulne <jeansebastien321@gmail.com>
+Date:   Thu May 2 23:54:39 2019 -0400
+
+    AAAAAA pud e temps
+
+commit a9b9920a777d83730406e9399022426456b79a9f
+Author: Jsbeaulne <jeansebastien321@gmail.com>
+Date:   Thu May 2 23:08:26 2019 -0400
+
+    GAYAYAYAYAYAYAY
+
+commit 48a67a60f90aa05a6ac05996e732b97f70ed146b
+Merge: 14cc1f3 b23252b
+Author: Jsbeaulne <jeansebastien321@gmail.com>
+Date:   Thu May 2 23:07:42 2019 -0400
+
+    Max qui gosse dans ma branche
+
+commit 14cc1f350ceaba839841501c6fc74c971498bdfe
+Author: Jsbeaulne <jeansebastien321@gmail.com>
+Date:   Thu May 2 23:05:01 2019 -0400
+
+    Modif images
+
+commit e60bba98f5b35e1974d72ec4c1a5b45547b7739f
+Merge: 1647af8 b23252b
+Author: themaxdey <themaxdey@users.noreply.github.com>
+Date:   Thu May 2 23:04:03 2019 -0400
+
+    Merge branch 'devJS' into devMax
+
+commit b23252bd1fa759598cb9bc15850a9b5e5d4b00fa
+Author: themaxdey <themaxdey@users.noreply.github.com>
+Date:   Thu May 2 23:03:14 2019 -0400
+
+    essaie de fix table header - non concluant
+
+commit 1647af8b27ba667e9e28c2db0e57d9f37d56924c
+Author: themaxdey <themaxdey@users.noreply.github.com>
+Date:   Thu May 2 22:34:55 2019 -0400
+
+    change
+
+commit e260539ccc8de659c4a0dcb8b52d4f6d668e2ab9
+Author: Jsbeaulne <jeansebastien321@gmail.com>
+Date:   Thu May 2 22:07:38 2019 -0400
+
+    Table non modifiable
+
+commit e22731131d68798bb25ad6045c2eb048982eca30
+Author: Jsbeaulne <jeansebastien321@gmail.com>
+Date:   Thu May 2 21:52:13 2019 -0400
+
+    poupou
+
+commit cd4e3a24d998511d44ab45f94113b5572812c529
+Author: Jsbeaulne <jeansebastien321@gmail.com>
+Date:   Thu May 2 21:49:30 2019 -0400
+
+    Debug le shit a max
+
+commit 014390be642a5f47a2159eb3c99584eded2e4189
+Author: Jsbeaulne <jeansebastien321@gmail.com>
+Date:   Thu May 2 21:19:19 2019 -0400
+
+    aaaa
+
+commit 1549054fca642854ba76383dab0f41047261833b
+Author: Jsbeaulne <jeansebastien321@gmail.com>
+Date:   Thu May 2 21:12:57 2019 -0400
+
+    marde
+
+commit d25cf3a9354f061d3d98c0a27e808a1069649a2c
+Merge: 4d9dffd 31c15c7
+Author: Jsbeaulne <jeansebastien321@gmail.com>
+Date:   Thu May 2 21:09:59 2019 -0400
+
+    ouff merging
+
+commit 31c15c7312d849386125eb28a8497207fa8c3ed9
+Author: themaxdey <themaxdey@users.noreply.github.com>
+Date:   Thu May 2 21:05:40 2019 -0400
+
+    added fermerSession au methode
+
+commit 4d9dffd578418b9282150c66ded062e44e2d8e03
+Author: Jsbeaulne <jeansebastien321@gmail.com>
+Date:   Thu May 2 21:04:08 2019 -0400
+
+    Max le bs
+
+commit 21fced934b7210a996fe409837e8dba1394b201d
+Author: themaxdey <themaxdey@users.noreply.github.com>
+Date:   Thu May 2 21:03:24 2019 -0400
+
+    added supress warning sur mes methodes
+
+commit 8447f8842d9f134e75ae4c9a12cfd62b553e9f37
+Author: themaxdey <themaxdey@users.noreply.github.com>
+Date:   Thu May 2 21:02:15 2019 -0400
+
+    Completion de remplir artiste et album
+
+commit cdfc0bbb050d17bec97cac77fbf9168ce97158be
+Author: Jsbeaulne <jeansebastien321@gmail.com>
+Date:   Thu May 2 20:25:54 2019 -0400
+
+    Crrections encore
+
+commit 18a2c5180f69bad92c426680051ad4a7edf3a9d1
+Author: Jsbeaulne <jeansebastien321@gmail.com>
+Date:   Thu May 2 20:00:24 2019 -0400
+
+    asdasd
+
+commit e03973a46328f9de60fceacb88328910073d37f5
+Author: Jsbeaulne <jeansebastien321@gmail.com>
+Date:   Thu May 2 19:36:22 2019 -0400
+
+    Corrections
+
+commit 7c1c3f168e37cf19f93e5a61fc5d612d507ea9bc
+Author: Jsbeaulne <jeansebastien321@gmail.com>
+Date:   Thu May 2 19:29:57 2019 -0400
+
+    oof
+
+commit 38cd794f0232ccf8276b82103e8267f5655a8d24
+Author: Jsbeaulne <jeansebastien321@gmail.com>
+Date:   Thu May 2 13:47:05 2019 -0400
+
+    Allo
+
+commit 76d68c17fcda60c3ba9deee1c7d860f6849152e7
+Author: Jsbeaulne <jeansebastien321@gmail.com>
+Date:   Tue Apr 23 23:52:14 2019 -0400
+
+    ASDASJBNDJKHASBFJHYABSJFHBASJHFBJAW fag asjhdkashdjkahk
+
+commit 18bb7029433302e027f1a62dbfbadea37f015ba5
+Author: Jsbeaulne <jeansebastien321@gmail.com>
+Date:   Tue Apr 23 22:52:56 2019 -0400
+
+    oups
+
+commit f1a55e8bba3eef9eddea32597d03be14ddb8b1ec
+Author: themaxdey <themaxdey@users.noreply.github.com>
+Date:   Tue Apr 23 22:43:50 2019 -0400
+
+    AAAAAAAAAAAAAAAH
+
+commit 48f71d0e62f3770e283745961ca7e5d6fb084446
+Author: themaxdey <themaxdey@users.noreply.github.com>
+Date:   Tue Apr 23 22:42:31 2019 -0400
+
+    AAAAAAAAAAAAAAAH
+
+commit c3a8f2b67453e0c4cc36b46db423062f70445770
+Author: themaxdey <themaxdey@users.noreply.github.com>
+Date:   Tue Apr 23 22:41:09 2019 -0400
+
+    AAAAAAAAAAAAAAAH
+
+commit c34645125d1f71239b8bcf41ad34c03edb155894
+Author: Jsbeaulne <jeansebastien321@gmail.com>
+Date:   Tue Apr 23 22:36:54 2019 -0400
+
+    NeVeR
+
+commit 777691dce29cb2bf8e5e28ae3385ba38998d76b6
+Author: themaxdey <themaxdey@users.noreply.github.com>
+Date:   Tue Apr 23 22:27:50 2019 -0400
+
+    completion des constructeurs artistes et album
+
+commit 28fe5522d2bc35cf4992189b204959ee3cdd53b3
+Author: Jsbeaulne <jeansebastien321@gmail.com>
+Date:   Tue Apr 23 20:57:40 2019 -0400
+
+    GAY SEX
+
+commit 3186744e18f4d566ac062bdf48e986bce4008021
+Merge: 04cc434 324baef
+Author: Jsbeaulne <jeansebastien321@gmail.com>
+Date:   Tue Apr 23 20:49:30 2019 -0400
+
+    A
+
+commit 04cc4347f46210d1216ce0374dc7ddb387fcd52e
+Author: themaxdey <themaxdey@users.noreply.github.com>
+Date:   Tue Apr 23 20:41:59 2019 -0400
+
+    pipiii
+
+commit 324baef955abdcd10e3b01f35b555b7f50fc2787
+Author: Jsbeaulne <jeansebastien321@gmail.com>
+Date:   Tue Apr 23 20:35:35 2019 -0400
+
+    Dude 2.0
+
+commit f65bf887f623cf512a811ff675a240608af7041a
+Author: Jsbeaulne <jeansebastien321@gmail.com>
+Date:   Tue Apr 23 20:34:19 2019 -0400
+
+    Dude
+
+commit 3d5dd2f9fe7f537d4aa3b2cd3952faa13df266e1
+Author: Jsbeaulne <jeansebastien321@gmail.com>
+Date:   Wed Apr 24 00:00:39 2019 -0400
+
+    WTF
+
+commit 12a924bdae07504a415262c1c555cadaa72a4811
+Author: themaxdey <themaxdey@users.noreply.github.com>
+Date:   Tue Apr 23 20:04:54 2019 -0400
+
+    choix traitement
+
+commit 1ccafc4e742e521f82427baa4350779c9f8cca3b
+Author: themaxdey <themaxdey@users.noreply.github.com>
+Date:   Tue Apr 23 19:01:21 2019 -0400
+
+    re-setup des fichiers java too new @ js

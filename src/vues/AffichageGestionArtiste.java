@@ -41,7 +41,7 @@ public class AffichageGestionArtiste extends JFrame {
 	private DefaultListModel<String> listModel;
 	private JLabel labelImage;
 	private JList<String> list1;
-	
+
 	private JButton btnModifier;
 	private JButton btnSupprimer;
 	private JButton btnAjouter;
@@ -50,7 +50,7 @@ public class AffichageGestionArtiste extends JFrame {
 	private ArrayList<Album> listeAlbums;
 
 	private String[][] donnees;
-	private String[] nomColonne = {"No", "Nom", "Membre"};
+	private String[] nomColonne = { "No", "Nom", "Membre" };
 
 	public AffichageGestionArtiste() {
 		listeArtistes = GestionEvenements.remplirArtistes();
@@ -106,7 +106,7 @@ public class AffichageGestionArtiste extends JFrame {
 
 		labelImage = new JLabel();
 		labelImage.setBounds(10, 117, 100, 100);
-		labelImage.setIcon( new ImageIcon(scaleImage("images/image.png")));
+		labelImage.setIcon(new ImageIcon(scaleImage("images/image.png")));
 		frame.getContentPane().add(labelImage);
 
 		JButton btnRemplacer = new JButton("Remplacer");
@@ -116,7 +116,7 @@ public class AffichageGestionArtiste extends JFrame {
 
 		TableModel model = new DefaultTableModel(donnees, nomColonne) {
 			private static final long serialVersionUID = 1L;
-			
+
 			public String getColumnName(int index) {
 
 				return nomColonne[index];
@@ -126,28 +126,28 @@ public class AffichageGestionArtiste extends JFrame {
 				return false;
 			}
 		};
-		table = new JTable(model);  
+		table = new JTable(model);
 		table.setBounds(120, 117, 240, 138);
 		table.setRowSelectionAllowed(true);
 		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		table.addMouseListener(new MouseAdapter() {
 
 			public void mouseClicked(MouseEvent e) {
-				if(e.getClickCount() == 1) {
+				if (e.getClickCount() == 1) {
 					JTable target = (JTable) e.getSource();
 					int row = target.getSelectedRow();
 					String num = target.getValueAt(row, 0).toString();
 					afficherArtiste(num);
 				}
-				if(e.getClickCount() == 2) {
+				if (e.getClickCount() == 2) {
 					JTable target = (JTable) e.getSource();
 					int row = target.getSelectedRow();
 					String num = target.getValueAt(row, 0).toString();
-					//System.out.println(num);
+					// System.out.println(num);
 					editArtiste(num);
 				}
 			}
-			
+
 		});
 		frame.getContentPane().add(table);
 
@@ -162,13 +162,13 @@ public class AffichageGestionArtiste extends JFrame {
 				textField_1.setText("");
 				textField_2.setText("");
 				checkBox1.setSelected(false);
-				
+
 				textField_1.setEditable(true);
 				textField_2.setEditable(true);
 				checkBox1.setEnabled(true);
 				btnAjouter.setEnabled(true);
 			}
-			
+
 		});
 		frame.getContentPane().add(btnNouveau);
 
@@ -180,11 +180,12 @@ public class AffichageGestionArtiste extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				int membre = (checkBox1.isSelected()) ? 1 : 0;
-				Artiste artiste = new Artiste(Integer.parseInt(textField_1.getText()), textField_2.getText(), membre, null);
+				Artiste artiste = new Artiste(Integer.parseInt(textField_1.getText()), textField_2.getText(), membre,
+						null);
 				listeArtistes = GestionArtiste.ajouterArtiste(artiste, listeArtistes);
 				update();
 			}
-			
+
 		});
 		frame.getContentPane().add(btnAjouter);
 
@@ -196,14 +197,15 @@ public class AffichageGestionArtiste extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				int checked = 0;
-				if(checkBox1.isSelected()) {
+				if (checkBox1.isSelected()) {
 					checked = 1;
 				}
-				Artiste artiste = new Artiste(Integer.parseInt(textField_1.getText()), textField_2.getText(), checked, null);
+				Artiste artiste = new Artiste(Integer.parseInt(textField_1.getText()), textField_2.getText(), checked,
+						null);
 				listeArtistes = GestionArtiste.modifierArtiste(artiste, listeArtistes);
 				update();
 			}
-			
+
 		});
 		frame.getContentPane().add(btnModifier);
 
@@ -215,14 +217,15 @@ public class AffichageGestionArtiste extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				int checked = 0;
-				if(checkBox1.isSelected()) {
+				if (checkBox1.isSelected()) {
 					checked = 1;
 				}
-				Artiste artiste = new Artiste(Integer.parseInt(textField_1.getText()), textField_2.getText(), checked, null);
+				Artiste artiste = new Artiste(Integer.parseInt(textField_1.getText()), textField_2.getText(), checked,
+						null);
 				listeArtistes = GestionArtiste.supprimerArtiste(artiste, listeArtistes);
 				update();
 			}
-			
+
 		});
 		frame.getContentPane().add(btnSupprimer);
 
@@ -267,7 +270,7 @@ public class AffichageGestionArtiste extends JFrame {
 
 		JLabel labelAlbum = new JLabel();
 		labelAlbum.setBounds(374, 315, 100, 100);
-		labelAlbum.setIcon( new ImageIcon(scaleImage("images/albumCover.png")));
+		labelAlbum.setIcon(new ImageIcon(scaleImage("images/albumCover.png")));
 		frame.getContentPane().add(labelAlbum);
 
 		frame.setVisible(true);
@@ -304,68 +307,69 @@ public class AffichageGestionArtiste extends JFrame {
 
 		return resizedImg;
 	}
-	
+
 	private void afficherArtiste(String num) {
+		btnAjouter.setEnabled(false);
 		btnModifier.setEnabled(false);
 		btnSupprimer.setEnabled(true);
 		textField_2.setEditable(false);
 		checkBox1.setEnabled(false);
 		Artiste artiste = new Artiste();
-		for(int i = 0; i < listeArtistes.size(); i++) {
+		for (int i = 0; i < listeArtistes.size(); i++) {
 			artiste = listeArtistes.get(i);
-			if(artiste.getNumero() == Integer.parseInt(num)) {
+			if (artiste.getNumero() == Integer.parseInt(num)) {
 				textField_1.setText(num);
 				break;
 			}
 		}
 		textField_2.setText(artiste.getNom());
-		if(artiste.getMembre() == 1) {
+		if (artiste.getMembre() == 1) {
 			checkBox1.setSelected(true);
-		}else {
+		} else {
 			checkBox1.setSelected(false);
 		}
-		
+
 		int o = 0;
-		for(Album a : listeAlbums) {
-			if(a.getNumeroArtiste() == artiste.getNumero()) {
+		for (Album a : listeAlbums) {
+			if (a.getNumeroArtiste() == artiste.getNumero()) {
 				o++;
 			}
 		}
 		int i = 0;
 		String[] liste = new String[o];
-		for(Album a : listeAlbums) {
-			if(a.getNumeroArtiste() == artiste.getNumero()) {
+		for (Album a : listeAlbums) {
+			if (a.getNumeroArtiste() == artiste.getNumero()) {
 				liste[i] = (a.getAnnee() + " - " + a.getTitre());
 				i++;
 			}
 		}
 		listModel.clear();
-		for(int oups = 0; oups < liste.length; oups++) {
+		for (int oups = 0; oups < liste.length; oups++) {
 			listModel.addElement(liste[oups]);
 		}
-		//System.out.println(artiste.getPhoto());
-		if(artiste.getPhoto() == null) {
-			labelImage.setIcon( new ImageIcon(scaleImage("images/image.png")));
-		}else {			
-			labelImage.setIcon( new ImageIcon(scaleImage(artiste.getPhoto())));
+		// System.out.println(artiste.getPhoto());
+		if (artiste.getPhoto() == null) {
+			labelImage.setIcon(new ImageIcon(scaleImage("images/image.png")));
+		} else {
+			labelImage.setIcon(new ImageIcon(scaleImage(artiste.getPhoto())));
 		}
-		
+
 	}
-	
+
 	private void editArtiste(String num) {
 		btnModifier.setEnabled(true);
 		Artiste artiste = new Artiste();
-		for(int i = 0; i < listeArtistes.size(); i++) {
+		for (int i = 0; i < listeArtistes.size(); i++) {
 			artiste = listeArtistes.get(i);
-			if(artiste.getNumero() == Integer.parseInt(num)) {
+			if (artiste.getNumero() == Integer.parseInt(num)) {
 				break;
 			}
 		}
 		textField_2.setEditable(true);
 		checkBox1.setEnabled(true);
-		
+
 	}
-	
+
 	private void update() {
 		frame.dispose();
 		initialize();
