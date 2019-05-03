@@ -29,12 +29,9 @@ public class ChoixTraitements extends JFrame {
 		setIconImage(new ImageIcon("images/icon.png").getImage());
 
 		JPanel p = new JPanel(new GridBagLayout());
-		
-<<<<<<< HEAD
-		String url = "../../aide/aide.html";
-=======
+
 		File htmlFile = new File("aide/aide.html");
->>>>>>> 662b4e01e2c43629f1c5e8880d2f3eeae463112f
+
 		
 		JButton b1 = new JButton("Artiste");
 		b1.addActionListener(new ActionListener() {
