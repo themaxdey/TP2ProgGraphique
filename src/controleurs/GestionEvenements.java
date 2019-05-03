@@ -11,12 +11,11 @@ import utilitaire.ControleurConnexion;
 
 public class GestionEvenements {
 
-	@SuppressWarnings("null")
 	public static ArrayList<Album> remplirAlbums() {
 		String req = "SELECT * FROM Album";
 
 		ControleurConnexion.connecter();
-		ArrayList<Album> listeAlbum = null;
+		ArrayList<Album> listeAlbum = new ArrayList<Album>();
 		Statement statement;
 
 		try {
@@ -26,13 +25,14 @@ public class GestionEvenements {
 			Album album;
 
 			while (jeuResultats.next()) {
+				int numero = Integer.parseInt(jeuResultats.getString("numero"));
 				String titre = jeuResultats.getString("titre");
+				String genre = jeuResultats.getString("genre");
 				int annee = Integer.parseInt(jeuResultats.getString("annee"));
-				String photo = jeuResultats.getString("photo");
-				int numeroArtisteFK = Integer.parseInt(jeuResultats.getString("numeroArtisteFK"));
-				int numeroAlbum = Integer.parseInt(jeuResultats.getString("numeroAlbum"));
+				String image = jeuResultats.getString("image");
+				int numeroArtiste = Integer.parseInt(jeuResultats.getString("numeroArtiste"));
 
-				album = new Album(titre, annee, photo, numeroArtisteFK, numeroAlbum);
+				album = new Album(numero, titre, genre, annee, image, numeroArtiste);
 
 				listeAlbum.add(album);
 
@@ -47,12 +47,11 @@ public class GestionEvenements {
 		return listeAlbum;
 	}
 
-	@SuppressWarnings("null")
 	public static ArrayList<Artiste> remplirArtistes() {
 		String req = "SELECT * FROM Artiste";
 
 		ControleurConnexion.connecter();
-		ArrayList<Artiste> listeArtiste = null;
+		ArrayList<Artiste> listeArtiste = new ArrayList<Artiste>();
 		Statement statement;
 
 		try {
@@ -62,12 +61,12 @@ public class GestionEvenements {
 			Artiste artiste;
 
 			while (jeuResultats.next()) {
-				String nom = jeuResultats.getString("titre");
+				int numero = Integer.parseInt(jeuResultats.getString("numero"));
+				String nom = jeuResultats.getString("nom");
+				int membre = Integer.parseInt(jeuResultats.getString("membre"));
 				String photo = jeuResultats.getString("photo");
-				int numero = Integer.parseInt(jeuResultats.getString("numeroArtiste"));
-				String membre = jeuResultats.getString("membre");
 
-				artiste = new Artiste(nom, photo, numero, membre);
+				artiste = new Artiste(numero, nom, membre, photo);
 
 				listeArtiste.add(artiste);
 
@@ -81,5 +80,90 @@ public class GestionEvenements {
 
 		return listeArtiste;
 	}
+
+	public static void ajouterArtisteBD(Artiste artiste) {
+		String req = "INSERT INTO Artiste (numero, nom, membre, photo) VALUES " + "('" + artiste.getNumero() + "', '"
+				+ artiste.getNom() + "', '" + artiste.getNumero() + "', '" + artiste.getPhoto() + "')";
+
+		ControleurConnexion.connecter();
+
+		Statement statement;
+
+		try {
+			statement = ControleurConnexion.getLaConnexion().createStatement();
+			statement.executeQuery(req);
+
+		} catch (SQLException e) {
+			System.out.println("Impossible d'inserer d'artiste dans la table");
+			e.printStackTrace();
+		}
+
+		ControleurConnexion.fermerSession();
+
+	}
+
+	public static void modifierArtisteBD(Artiste artiste) {
+		String req = "UPDATE Artiste SET numero = " + artiste.getNumero() + ", nom = " + artiste.getNom()
+				+ ", membre = " + artiste.getMembre() + ", photo = " + artiste.getPhoto() + " WHERE numero = "
+				+ artiste.getNumero() + "";
+
+		ControleurConnexion.connecter();
+
+		Statement statement;
+
+		try {
+			statement = ControleurConnexion.getLaConnexion().createStatement();
+			statement.executeQuery(req);
+
+		} catch (SQLException e) {
+			System.out.println("Impossible de modifier un artiste dans la table");
+			e.printStackTrace();
+		}
+
+		ControleurConnexion.fermerSession();
+
+	}
+
+	public static void supprimerArtisteBD(Artiste artiste) {
+		String req = "DELETE FROM Artiste WHERE numero = " + artiste.getNumero() + "";
+
+		ControleurConnexion.connecter();
+
+		Statement statement;
+
+		try {
+			statement = ControleurConnexion.getLaConnexion().createStatement();
+			statement.executeQuery(req);
+
+		} catch (SQLException e) {
+			System.out.println("Impossible de supprimer un artiste de la table");
+			e.printStackTrace();
+		}
+
+		ControleurConnexion.fermerSession();
+
+	}
+
+//	public static void ajouterAlbumBD(Album album) {
+//		String req = "INSERT INTO album (titre, genre, annee, image, numeroArtiste) VALUES " + "('" + album.getTitre()
+//				+ "', '" + album.getGenre() + "', '" + album.getAnnee() + "', '" + album.getImage() + "', '"
+//				+ album.getNumeroArtiste() + "')";
+//
+//		ControleurConnexion.connecter();
+//
+//		Statement statement;
+//
+//		try {
+//			statement = ControleurConnexion.getLaConnexion().createStatement();
+//			statement.executeQuery(req);
+//
+//		} catch (SQLException e) {
+//			System.out.println("Impossible d'inserer d'album dans la table");
+//			e.printStackTrace();
+//		}
+//
+//		ControleurConnexion.fermerSession();
+//
+//	}
 
 }

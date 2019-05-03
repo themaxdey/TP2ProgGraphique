@@ -4,11 +4,11 @@ import java.sql.*;
 
 public class ControleurConnexion {
 	private static Connection laConnexion;
-	private static String url = "jdbc:sqlite:c:/bd/dbEmployes.db";
+	private static String url = "jdbc:sqlite:c:/bd/db.db";
 
 	/**
-	 * Établit la connexion à la BDD si elle n'existe pas. Attention, la connexion
-	 * ne doit pas être fermée
+	 * ï¿½tablit la connexion ï¿½ la BDD si elle n'existe pas. Attention, la connexion
+	 * ne doit pas ï¿½tre fermï¿½e
 	 */
 	public static void connecter() {
 		try {

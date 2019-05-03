@@ -1,27 +1,31 @@
 package modeles;
 
 public class Artiste {
+	int numero;
 	String nom;
+	int membre;
 	String photo;
-	int numeroArtiste;
-	String membre;
 	
-	public Artiste(String nom, String photo, int numero, String membre) {
+	public Artiste(int numero, String nom, int membre, String photo) {
+		this.numero = numero;
 		this.nom = nom;
-		this.photo = photo;
-		this.numeroArtiste = numero;
 		this.membre = membre;
+		this.photo = photo;
+	}
+	
+	public int getNumero() {
+		return numero;
 	}
 	
 	public String getNom() {
 		return this.nom;
 	}
 	
-	public String getMembre() {
+	public int getMembre() {
 		return this.membre;
 	}
 	
-	public int getNumero() {
-		return numeroArtiste;
+	public String getPhoto() {
+		return this.photo;
 	}
 }
