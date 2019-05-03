@@ -1,3 +1,34 @@
+commit 33a5831702ff769fb5fb4e6b00a60e31c4fa277e
+Merge: 9485a84 662b4e0
+Author: themaxdey <themaxdey@users.noreply.github.com>
+Date:   Fri May 3 03:24:14 2019 -0400
+
+    ajout de l'aide en ligne
+
+commit 9485a844c67fcdc8b40d111ca07fb53c9aed09ee
+Author: themaxdey <themaxdey@users.noreply.github.com>
+Date:   Fri May 3 03:23:35 2019 -0400
+
+    ajout de l'aide en ligne
+
+commit 662b4e01e2c43629f1c5e8880d2f3eeae463112f
+Author: Jsbeaulne <jeansebastien321@gmail.com>
+Date:   Fri May 3 03:20:57 2019 -0400
+
+    Finission aide en ligne et quelque corrections
+
+commit a20c794bdb6bfeca5541e3b45fecf02e337f2dcf
+Author: Jsbeaulne <jeansebastien321@gmail.com>
+Date:   Fri May 3 02:24:55 2019 -0400
+
+    Ajout scrollBar
+
+commit 38d3d2d244afc865a4b43ed46e6d271c1bff7b89
+Author: Jsbeaulne <jeansebastien321@gmail.com>
+Date:   Fri May 3 01:55:21 2019 -0400
+
+    ESTI
+
 commit cc7f1cec525441367a65fdb2a7daab7a17044b7d
 Author: Jsbeaulne <jeansebastien321@gmail.com>
 Date:   Fri May 3 01:32:06 2019 -0400
