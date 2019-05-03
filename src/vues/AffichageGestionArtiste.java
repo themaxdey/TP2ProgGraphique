@@ -11,6 +11,7 @@ import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
+import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -25,6 +26,7 @@ import javax.swing.table.TableModel;
 import controleurs.GestionEvenements;
 import modeles.Album;
 import modeles.Artiste;
+import modeles.GestionArtiste;
 
 public class AffichageGestionArtiste extends JFrame {
 	private static final long serialVersionUID = 1L;
@@ -35,6 +37,7 @@ public class AffichageGestionArtiste extends JFrame {
 	private JTextField textField_1;
 	private JTextField textField_2;
 	private JCheckBox checkBox1;
+	private DefaultListModel<String> listModel;
 
 	private ArrayList<Artiste> listeArtistes;
 	private ArrayList<Album> listeAlbums;
@@ -201,9 +204,10 @@ public class AffichageGestionArtiste extends JFrame {
 		frame.getContentPane().add(textField_2);
 		textField_2.setColumns(10);
 
-		JList<String> list = new JList<String>();
-		list.setBounds(175, 315, 185, 100);
-		frame.getContentPane().add(list);
+		listModel = new DefaultListModel<>();
+		JList<String> list1 = new JList<String>(listModel);
+		list1.setBounds(175, 315, 185, 100);
+		frame.getContentPane().add(list1);
 
 		JLabel labelAlbum = new JLabel();
 		labelAlbum.setBounds(374, 315, 100, 100);
@@ -230,7 +234,6 @@ public class AffichageGestionArtiste extends JFrame {
 			}
 			i++;
 		}
-
 	}
 
 	private Image scaleImage(String stringImg) {
@@ -262,6 +265,24 @@ public class AffichageGestionArtiste extends JFrame {
 			checkBox1.setSelected(false);
 		}
 		
+		int o = 0;
+		for(Album a : listeAlbums) {
+			if(a.getNumeroArtiste() == artiste.getNumero()) {
+				o++;
+			}
+		}
+		int i = 0;
+		String[] liste = new String[o];
+		for(Album a : listeAlbums) {
+			if(a.getNumeroArtiste() == artiste.getNumero()) {
+				liste[i] = (a.getAnnee() + " - " + a.getTitre());
+				i++;
+			}
+		}
+		listModel.clear();
+		for(int oups = 0; oups < liste.length; oups++) {
+			listModel.addElement(liste[oups]);
+		}
 	}
 	
 	private void editArtiste(String num) {
