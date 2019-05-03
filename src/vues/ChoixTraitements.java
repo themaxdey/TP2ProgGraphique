@@ -1,11 +1,13 @@
 package vues;
 
 import java.awt.BorderLayout;
+import java.awt.Desktop;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.io.IOException;
 
 import javax.swing.ImageIcon;
@@ -28,7 +30,7 @@ public class ChoixTraitements extends JFrame {
 
 		JPanel p = new JPanel(new GridBagLayout());
 		
-		String url = "https://bit.ly/2ISmOzG";
+		File htmlFile = new File("aide/aide.html");
 		
 		JButton b1 = new JButton("Artiste");
 		b1.addActionListener(new ActionListener() {
@@ -57,7 +59,7 @@ public class ChoixTraitements extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				try {
-					java.awt.Desktop.getDesktop().browse(java.net.URI.create(url));
+					Desktop.getDesktop().browse(htmlFile.toURI());
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
