@@ -15,7 +15,6 @@ import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
-import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
@@ -52,7 +51,7 @@ public class AffichageGestionArtiste extends JFrame{
 		frame.setBounds(500, 500, 500, 500);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		frame.setIconImage(new ImageIcon("icon.png").getImage());
+		frame.setIconImage(new ImageIcon("images/icon.png").getImage());
 		
 		JLabel lblRechercherUnArtiste = new JLabel("Rechercher un artiste");
 		lblRechercherUnArtiste.setBounds(10, 11, 255, 14);
@@ -94,7 +93,7 @@ public class AffichageGestionArtiste extends JFrame{
 		
 		JLabel labelImage = new JLabel();
 		labelImage.setBounds(10, 117, 100, 100);
-		labelImage.setIcon( new ImageIcon(scaleImage("image.png")));
+		labelImage.setIcon( new ImageIcon(scaleImage("images/image.png")));
 		frame.getContentPane().add(labelImage);
 		
 		JButton btnRemplacer = new JButton("Remplacer");
@@ -108,7 +107,7 @@ public class AffichageGestionArtiste extends JFrame{
 				return false;
 			}
 		};
-		table = new JTable(model);
+		table = new JTable(model);  
 		table.setBounds(120, 117, 240, 138);
 		frame.getContentPane().add(table);
 		
@@ -165,7 +164,7 @@ public class AffichageGestionArtiste extends JFrame{
 		
 		JLabel labelAlbum = new JLabel();
 		labelAlbum.setBounds(374, 315, 100, 100);
-		labelAlbum.setIcon( new ImageIcon(scaleImage("albumCover.png")));
+		labelAlbum.setIcon( new ImageIcon(scaleImage("images/albumCover.png")));
 		frame.getContentPane().add(labelAlbum);
 		
 		frame.setVisible(true);

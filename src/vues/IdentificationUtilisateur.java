@@ -20,7 +20,7 @@ public class IdentificationUtilisateur extends JFrame{
 		super("Authentification");
 		setSize(500, 200);
 		setResizable(false);
-		setIconImage(new ImageIcon("icon.png").getImage());
+		setIconImage(new ImageIcon("images/icon.png").getImage());
 		setLayout(new GridBagLayout());
 		
 		JLabel c1 = new JLabel("Nom d'Utilisateur : ");

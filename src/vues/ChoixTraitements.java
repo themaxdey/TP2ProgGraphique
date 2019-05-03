@@ -24,7 +24,7 @@ public class ChoixTraitements extends JFrame {
 		setSize(350, 175);
 		setVisible(true);
 		setResizable(false);
-		setIconImage(new ImageIcon("icon.png").getImage());
+		setIconImage(new ImageIcon("images/icon.png").getImage());
 
 		JPanel p = new JPanel(new GridBagLayout());
 		
