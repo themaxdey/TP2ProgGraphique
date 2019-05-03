@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.JCheckBox;
 import javax.swing.JList;
+import javax.swing.JScrollPane;
 
 public class fen {
 
@@ -80,10 +81,6 @@ public class fen {
 		btnRemplacer.setBounds(10, 225, 100, 30);
 		frame.getContentPane().add(btnRemplacer);
 		
-		table = new JTable();
-		table.setBounds(120, 117, 240, 138);
-		frame.getContentPane().add(table);
-		
 		JButton btnNouveau = new JButton("Nouveau");
 		btnNouveau.setBounds(385, 117, 89, 23);
 		frame.getContentPane().add(btnNouveau);
@@ -138,5 +135,12 @@ public class fen {
 		JPanel panel_1 = new JPanel();
 		panel_1.setBounds(374, 315, 100, 100);
 		frame.getContentPane().add(panel_1);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(120, 117, 240, 138);
+		frame.getContentPane().add(scrollPane);
+		
+		table = new JTable();
+		scrollPane.setViewportView(table);
 	}
 }
