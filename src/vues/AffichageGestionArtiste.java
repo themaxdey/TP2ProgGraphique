@@ -80,7 +80,7 @@ public class AffichageGestionArtiste extends JFrame{
 		
 		JLabel labelImage = new JLabel();
 		labelImage.setBounds(10, 117, 100, 100);
-		labelImage.setIcon( new ImageIcon(scaleImage("albumCover.png")));
+		labelImage.setIcon( new ImageIcon(scaleImage("image.png")));
 		frame.getContentPane().add(labelImage);
 		
 		JButton btnRemplacer = new JButton("Remplacer");
@@ -142,14 +142,17 @@ public class AffichageGestionArtiste extends JFrame{
 		list.setBounds(175, 315, 185, 100);
 		frame.getContentPane().add(list);
 		
-		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(374, 315, 100, 100);
-		frame.getContentPane().add(panel_1);
+		JLabel labelAlbum = new JLabel();
+		labelAlbum.setBounds(374, 315, 100, 100);
+		labelImage.setIcon( new ImageIcon(scaleImage("albumCover.png")));
+		frame.getContentPane().add(labelAlbum);
 		
 		frame.setVisible(true);
 	}
 	
 	public void remplir() {
+		
+		
 		
 	}
 	
